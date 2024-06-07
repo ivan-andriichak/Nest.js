@@ -3,8 +3,8 @@ import { ConfigModule } from '@nestjs/config';
 
 import configuration from './configs/configs';
 import { AuthModule } from './modules/auth/auth.module';
+import { PostgresModule } from './modules/postgres/postgres.module';
 import { UserModule } from './modules/user/user.module';
-import { PostgresModule } from './postgers/postrgres.module';
 
 @Module({
   imports: [

@@ -1,5 +1,5 @@
 import { ValidationPipe } from '@nestjs/common';
-import { ConfigService } from '@nestjs/config';
+import { ConfigService } from '@nestjs/config/dist/config.service';
 import { NestFactory } from '@nestjs/core';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 
@@ -27,11 +27,10 @@ async function bootstrap() {
   SwaggerModule.setup('docs', app, document, {
     swaggerOptions: {
       docExpansion: 'list',
-      defaultModulesExpandDepth: 2,
+      defaultModelsExpandDepth: 2,
       persistAuthorization: true,
     },
   });
-
   app.useGlobalPipes(
     new ValidationPipe({
       transform: true,
@@ -39,6 +38,7 @@ async function bootstrap() {
       forbidNonWhitelisted: true,
     }),
   );
+
   await app.listen(appConfig.port, appConfig.host, () => {
     console.log(`Server running on http://${appConfig.host}:${appConfig.port}`);
     console.log(

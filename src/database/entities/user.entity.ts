@@ -15,14 +15,14 @@ export class UserEntity {
   firstName: string;
 
   @Column()
-  name: string;
-
-  @Column()
-  lastName: string;
-
-  @Column()
   isActive: boolean;
 
   @Column()
-  isNamed: boolean;
+  address: string;
+
+  @Column()
+  country: string;
+
+  @Column()
+  isBeneficiary: boolean;
 }
