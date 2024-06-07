@@ -25,4 +25,7 @@ export class UserEntity {
 
   @Column()
   isBeneficiary: boolean;
+
+  @Column()
+  isPrimary: boolean;
 }

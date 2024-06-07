@@ -24,7 +24,7 @@ export class PostgresConnectService implements TypeOrmOptionsFactory {
         path.join(process.cwd(), 'dist', 'database', 'entities', '*.entity.js'),
       ],
       migrations: [
-        path.join(process.cwd(), 'dist', 'database', 'migrations', '*.ts'),
+        path.join(process.cwd(), 'dist', 'database', 'migrations', '*.js'),
       ],
       synchronize: false,
     };
