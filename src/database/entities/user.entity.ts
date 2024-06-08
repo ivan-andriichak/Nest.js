@@ -23,9 +23,9 @@ export class UserEntity {
   @Column()
   country: string;
 
-  @Column()
+  @Column({ default: false })
   isBeneficiary: boolean;
 
-  @Column()
+  @Column({ default: false })
   isPrimary: boolean;
 }
