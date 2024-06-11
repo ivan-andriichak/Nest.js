@@ -1,19 +1,26 @@
 import { Injectable } from '@nestjs/common';
 
 import { LoggerService } from '../logger/logger.service';
+import { CommentRepository } from '../repository/services/comment.repository';
+import { UserRepository } from '../repository/services/user.repository';
 import { CreateUserReqDto } from './dto/req/create-user.req.dto';
 import { UpdateUserReqDto } from './dto/req/update-user.req.dto';
 
 @Injectable()
 export class UserService {
-  // private readonly logger = new Logger(UserService.name);
+  constructor(
+    private readonly logger: LoggerService,
+    private readonly userRepository: UserRepository,
+    private readonly commentRepository: CommentRepository,
+  ) {}
 
-  constructor(private readonly logger: LoggerService) {}
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   public async create(createUserDto: CreateUserReqDto): Promise<any> {
-    this.logger.log('This action adds a new user');
-    throw new Error('This action adds a new user');
-    return 'This action adds a new user';
+    return await this.userRepository.save({
+      email: 'user@',
+      password: 'userQWE',
+      name: 'user',
+    });
   }
 
   public async findAll(): Promise<any> {

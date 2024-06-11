@@ -41,6 +41,7 @@ export class PostgresConnectService implements TypeOrmOptionsFactory {
         ),
       ],
       synchronize: false,
+      migrationsRun: true,
     };
   }
 }

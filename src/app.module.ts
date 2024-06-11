@@ -6,6 +6,7 @@ import { GlobalExceptionFilter } from './common/http/global-exception.filter';
 import configuration from './configs/configs';
 import { AuthModule } from './modules/auth/auth.module';
 import { PostgresModule } from './modules/postgres/postgres.module';
+import { RepositoryModule } from './modules/repository/repository.module';
 import { UserModule } from './modules/user/user.module';
 
 @Module({
@@ -14,6 +15,7 @@ import { UserModule } from './modules/user/user.module';
       load: [configuration],
       isGlobal: true,
     }),
+    RepositoryModule,
     PostgresModule,
     PostgresModule,
     UserModule,
