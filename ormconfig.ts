@@ -9,8 +9,6 @@ dotenv.config({ path: './environments/local.env' });
 
 const databaseConfig = getter().database;
 
-console.log('Database Configuration:', databaseConfig);
-
 export default new DataSource({
   type: 'postgres',
   host: databaseConfig.host,

@@ -2,32 +2,32 @@ import { ApiProperty } from '@nestjs/swagger';
 
 export class BaseUserResDto {
   @ApiProperty({
-    example: '123456',
-    description: 'User Name',
+    example: '121324354678976543fdg',
+    description: 'The id of the User',
   })
   id: string;
 
   @ApiProperty({
-    example: 'Ivan',
-    description: 'User Name',
+    example: 'John Doe',
+    description: 'The name of the User',
   })
   public readonly name: string;
 
   @ApiProperty({
-    example: 'test1@gmail.com',
-    description: 'User Name',
+    example: 'test@.gmail.com',
+    description: 'The email of the User',
   })
   public readonly email: string;
 
   @ApiProperty({
-    example: 'https://www.example.com/image.png',
-    description: 'User Image',
+    example: 'This is a bio',
+    description: 'The bio of the User',
   })
-  public readonly avatar?: string;
+  public readonly bio?: string;
 
   @ApiProperty({
-    example: '20',
-    description: 'User Age',
+    example: 'https://www.example.com/avatar.jpg',
+    description: 'The avatar of the User',
   })
-  public readonly age?: string;
+  public readonly image?: string;
 }
