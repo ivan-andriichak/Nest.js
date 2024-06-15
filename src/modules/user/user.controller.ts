@@ -15,6 +15,9 @@ import {
   ApiUnauthorizedResponse,
 } from '@nestjs/swagger';
 
+import { CurrentUser } from '../auth/decorators/current-user.decorator';
+import { SkipAuth } from '../auth/decorators/skip-auth.decorator';
+import { IUserData } from '../auth/interfaces/user-data.interfaces';
 import { UpdateUserReqDto } from './dto/req/update-user.req.dto';
 import { UserResDto } from './dto/res/user.res.dto';
 import { UserService } from './services/user.service';
@@ -25,12 +28,14 @@ import { UserService } from './services/user.service';
 export class UserController {
   constructor(private readonly userService: UserService) {}
 
+  @SkipAuth()
   @ApiForbiddenResponse({ description: 'Forbidden' })
   @ApiUnauthorizedResponse({ description: 'Unauthorized' })
   @ApiNotFoundResponse({ description: 'Not Found' })
   @Get(':id')
   public async findOne(
-    @Param('id', ParseUUIDPipe) id: string,
+    @Param('id', ParseUUIDPipe)
+    id: string,
   ): Promise<UserResDto> {
     return await this.userService.findOne(id);
   }
@@ -40,17 +45,21 @@ export class UserController {
   @ApiNotFoundResponse({ description: 'Not Found' })
   @Patch(':id')
   public async update(
+    @CurrentUser() userData: IUserData,
     @Param('id', ParseUUIDPipe) id: string,
     @Body() updateUserDto: UpdateUserReqDto,
   ): Promise<any> {
-    return await this.userService.update(id, updateUserDto);
+    return await this.userService.update(userData, updateUserDto);
   }
 
   @ApiForbiddenResponse({ description: 'Forbidden' })
   @ApiUnauthorizedResponse({ description: 'Unauthorized' })
   @ApiNotFoundResponse({ description: 'Not Found' })
   @Delete(':id')
-  public async remove(@Param('id', ParseUUIDPipe) id: string): Promise<any> {
+  public async remove(
+    @CurrentUser() userData: IUserData,
+    @Param('id', ParseUUIDPipe) id: string,
+  ): Promise<any> {
     return await this.userService.remove(id);
   }
 }

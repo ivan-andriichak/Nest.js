@@ -1,5 +1,6 @@
 import { ConflictException, Injectable } from '@nestjs/common';
 
+import { IUserData } from '../../auth/interfaces/user-data.interfaces';
 import { LoggerService } from '../../logger/logger.service';
 import { UserRepository } from '../../repository/services/user.repository';
 import { UpdateUserReqDto } from '../dto/req/update-user.req.dto';
@@ -20,11 +21,11 @@ export class UserService {
   }
 
   public async update(
-    id: string,
+    userData: IUserData,
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     updateUserDto: UpdateUserReqDto,
   ): Promise<any> {
-    return `This action updates a #${id} user`;
+    return `This action updates a #${userData.userId} user`;
   }
 
   public async remove(id: string): Promise<any> {
