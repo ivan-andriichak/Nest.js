@@ -44,13 +44,13 @@ export class TokenService {
     let secret: string;
     switch (type) {
       case TokenType.ACCESS:
-        secret = this.jwtConfig.refreshSecret;
+        secret = this.jwtConfig.accessSecret;
         break;
       case TokenType.REFRESH:
         secret = this.jwtConfig.refreshSecret;
         break;
       default:
-        throw new Error('Unsupported token type');
+        throw new Error('Unknown token type');
     }
     return secret;
   }
