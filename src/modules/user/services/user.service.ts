@@ -4,7 +4,7 @@ import {
   NotFoundException,
 } from '@nestjs/common';
 
-import { IUserData } from '../../auth/interfaces/user-data.interfaces';
+import { IUserData } from '../../auth/interfaces/user-data.interface';
 import { LoggerService } from '../../logger/logger.service';
 import { FollowRepository } from '../../repository/services/follow.repository';
 import { UserRepository } from '../../repository/services/user.repository';
@@ -41,6 +41,7 @@ export class UserService {
     }
     return UserMapper.toResponseDTO(user);
   }
+
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   public async remove(userId: string): Promise<void> {}
 

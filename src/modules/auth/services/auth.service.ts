@@ -8,7 +8,7 @@ import { SignInReqDto } from '../dto/req/sign-in.req.dto';
 import { SignUpReqDto } from '../dto/req/sign-up.req.dto';
 import { AuthResDto } from '../dto/res/auth.res.dto';
 import { TokenPairResDto } from '../dto/res/token-pair.res.dto';
-import { IUserData } from '../interfaces/user-data.interfaces';
+import { IUserData } from '../interfaces/user-data.interface';
 import { AuthMapper } from './auth.mapper';
 import { AuthCacheService } from './auth-cache.service';
 import { TokenService } from './token.service';

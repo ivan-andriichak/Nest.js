@@ -3,7 +3,7 @@ import { UserMapper } from '../../user/services/user.mapper';
 import { AuthResDto } from '../dto/res/auth.res.dto';
 import { TokenPairResDto } from '../dto/res/token-pair.res.dto';
 import { ITokenPair } from '../interfaces/token-pair.interface';
-import { IUserData } from '../interfaces/user-data.interfaces';
+import { IUserData } from '../interfaces/user-data.interface';
 
 export class AuthMapper {
   public static toResponseDTO(

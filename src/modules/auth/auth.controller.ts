@@ -8,7 +8,7 @@ import { SignUpReqDto } from './dto/req/sign-up.req.dto';
 import { AuthResDto } from './dto/res/auth.res.dto';
 import { TokenPairResDto } from './dto/res/token-pair.res.dto';
 import { JwtRefreshGuard } from './guards/jwt-refresh.guard';
-import { IUserData } from './interfaces/user-data.interfaces';
+import { IUserData } from './interfaces/user-data.interface';
 import { AuthService } from './services/auth.service';
 
 @ApiTags('Auth')

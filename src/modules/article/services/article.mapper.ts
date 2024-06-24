@@ -1,8 +1,10 @@
 import { ArticleEntity } from '../../../database/entities/article.entity';
+import { UserMapper } from '../../user/services/user.mapper';
 import { ArticleResDto } from '../dto/res/article.res.dto';
 
 export class ArticleMapper {
   public static toResponseDTO(entity: ArticleEntity): ArticleResDto {
+    console.log(entity);
     return {
       id: entity.id,
       title: entity.title,
@@ -10,7 +12,8 @@ export class ArticleMapper {
       body: entity.body,
       created: entity.created,
       updated: entity.updated,
-      tags: entity.tags.map((tag) => tag.name),
+      tags: entity.tags ? entity.tags.map((tag) => tag.name) : [],
+      user: entity.user ? UserMapper.toResponseDTO(entity.user) : null,
     };
   }
 }

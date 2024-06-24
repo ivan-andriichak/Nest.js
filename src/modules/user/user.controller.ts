@@ -18,7 +18,7 @@ import {
 
 import { CurrentUser } from '../auth/decorators/current-user.decorator';
 import { SkipAuth } from '../auth/decorators/skip-auth.decorator';
-import { IUserData } from '../auth/interfaces/user-data.interfaces';
+import { IUserData } from '../auth/interfaces/user-data.interface';
 import { UpdateUserReqDto } from './dto/req/update-user.req.dto';
 import { UserResDto } from './dto/res/user.res.dto';
 import { UserService } from './services/user.service';

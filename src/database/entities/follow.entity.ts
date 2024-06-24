@@ -1,6 +1,5 @@
 import { Column, Entity, JoinColumn, ManyToOne } from 'typeorm';
 
-import { ArticleEntity } from './article.entity';
 import { TableNameEnum } from './enums/table-name.enum';
 import { BaseModel } from './models/base.model';
 import { UserEntity } from './user.entity';
@@ -16,6 +15,6 @@ export class FollowEntity extends BaseModel {
   @Column()
   following_id: string;
   @ManyToOne(() => UserEntity, (entity) => entity.followings)
-  @JoinColumn({ name: 'article_id' })
-  following?: ArticleEntity;
+  @JoinColumn({ name: 'following_id' })
+  following?: UserEntity;
 }
